@@ -1,0 +1,21 @@
+# WRITING A DOCKER FILE IS JUST LIKE GIVEN A COMPUTER and INSTALL GOOGLE CHROME ON IT
+
+
+# use existing docker image as a base
+#base image to as an initial operating system
+FROM alpine
+
+
+# download and install a dependency
+#this line has nothing to do with docker
+# apk - apache package manager to download redis
+RUN apk add --update redis
+
+#Tell the image what to do when it starts its container
+CMD ["redis-server"]
+
+
+# RUN "docker build ." to create an image
+# RUN "image id" -> docker run <image id>
+#RUN "docker build <tagname>:<tag> ." to create a tagged/named image, by default <tag> latest is picked
+# RUN via docker run <tagname>
