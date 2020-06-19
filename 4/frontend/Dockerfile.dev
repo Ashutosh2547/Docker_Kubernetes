@@ -1,0 +1,15 @@
+#choose base image
+FROM node:alpine
+
+WORKDIR "/app"
+#COpy
+COPY package.json .
+
+#run commands
+RUN npm install
+
+#We can remove this for local bench, if we are mouting volume, but for production (or creating image we might need this)
+COPY . .
+
+#startup command, this starts the development container
+CMD ["npm", "run", "start"]
